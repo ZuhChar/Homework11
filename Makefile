@@ -5,7 +5,7 @@
 #
 # COSC 3750, Homework 11
 #
-# This is a Makefile designed to compile the mmute.c file
+# This is a Makefile designed to compile the mmult.c file
 # Collaborated with Ian Moon on this Homework
 #
 
@@ -15,13 +15,13 @@ RM= rm -f
 
 .PHONY: all clean tidy
 
-all: mmute
+all: mmult
 
-mmute: mmute.c
-	${CC} ${CFLAGS} mmute.c -o mmute
+mmult: mmult.c
+	${CC} ${CFLAGS} mmult.c -o mmult
 
 clean:
-	${RM} *.o mmute
+	${RM} *.o mmult
 
 tidy:
-	${RM} a.out core.* mmute
+	${RM} a.out core.* mmult

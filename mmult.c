@@ -1,5 +1,5 @@
 //
-// wyshell.c
+// mmult.c
 // Author: Zachary Crimmel
 // Date: May 13, 2022
 //
