@@ -49,7 +49,11 @@ int main(int argc, char **argv)
             {1, 1, 1},
             {1, 1, 1}
         };
-        int c[3][3];
+        int c[3][3] = {
+            {0, 0, 0},
+            {0, 0, 0},
+            {0, 0, 0}
+        };
 
         // fread(a, buffer, 1, mat1);
         // fread(b, buffer, 1, mat2);
