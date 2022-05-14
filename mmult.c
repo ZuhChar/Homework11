@@ -116,7 +116,7 @@ int main(int argc, char **argv)
         // }
 
         int count = 0;
-        int *err;
+        int err;
         pthread_t tid[threadCount];
         while (count < threadCount)
         {
