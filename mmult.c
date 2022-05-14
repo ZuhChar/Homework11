@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
 
     int a[1000][1000];
     int b[1000][1000];
-    in c[1000][1000];
+    int c[1000][1000];
 
     // for(int i = 0; i < 5; i++){
     //     for(int j = 0; j < 10; j++){
