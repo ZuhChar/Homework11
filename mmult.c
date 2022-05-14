@@ -15,22 +15,23 @@
 #include<pthread.h>
 
 int main(int argc, char *argv[]){
+    // Make sure right amount of arguments are passed
     if(argc > 5 || argc < 4){
-        perror("Incorrect usage of mmult.c.: ");
+        printf("Incorrect amount of arguments passed\n");
         return 0;
     }
+    // Store names of matrices
     char *mat1 = argv[1];
     char *mat2 = argv[2];
     char *multMat = argv[3];
-    printf("%s\n", mat1);
-    printf("%s\n", mat2);
-    printf("%s\n", multMat);
+
+    // Check to see if there is a thread count then store it
     if(argc == 5){
         char *threads = argv[4];
         int threadCount = atoi(threads);
-        printf("%d\n", threadCount);
     }
 
+    
 
     // for(int i = 0; i < 5; i++){
     //     for(int j = 0; j < 10; j++){
