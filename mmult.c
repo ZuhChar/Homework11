@@ -40,7 +40,7 @@
 //     return code;
 // }
 
-int multMat(int a, int b)
+int multMat(int a[], int b[])
 {
     int c[100][100];
     for (int i = 0; i < 3; i++)
@@ -116,7 +116,7 @@ int main(int argc, char **argv)
 
             if (err != 0)
                 printf("\nCan't creat thread: [%s]", strerror(err));
-            count++
+            count++;
         }
 
         for(int i = 0; i < count; i++){
