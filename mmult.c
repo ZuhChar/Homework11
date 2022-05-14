@@ -22,11 +22,15 @@ int main(int argc, char *argv[]){
     char *mat1 = argv[1];
     char *mat2 = argv[2];
     char *multMat = argv[3];
+    printf("%s\n", mat1);
+    printf("%s\n", mat2);
+    printf("%s\n", multMat);
     if(argc == 5){
         char *threads = argv[4];
+        int threadCount = atoi(threads);
+        printf("%d\n", threadCount);
     }
 
-    printf("%s\n", mat1);
 
     // for(int i = 0; i < 5; i++){
     //     for(int j = 0; j < 10; j++){
