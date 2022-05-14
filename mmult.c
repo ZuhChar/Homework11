@@ -15,6 +15,8 @@
 #include<pthread.h>
 
 int main(int argc, char *argv[]){
+    int buffer = 10000;
+
     // Make sure right amount of arguments are passed
     if(argc > 5 || argc < 4){
         printf("Incorrect amount of arguments passed\n");
@@ -31,7 +33,7 @@ int main(int argc, char *argv[]){
         int threadCount = atoi(threads);
     }
 
-    int a[1000][1000];
+    int a[1000][1000] = fread(a, buffer, buffer, mat1);
     int b[1000][1000];
     int c[1000][1000];
 
