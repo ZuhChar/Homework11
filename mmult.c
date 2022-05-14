@@ -20,17 +20,17 @@ int main(int argc, char **argv)
     int column;
 
     // Make sure right amount of arguments are passed
-    if (!1)
+    if (argc > 5 || argc < 4)
     {
         printf("Incorrect amount of arguments passed\n");
         return 0;
     }
-    else if(1)
+    else
     {
-        // Store names of matrices
-        // FILE *mat1 = fopen(argv[1], "r");
-        // FILE *mat2 = fopen(argv[2], "r");
-        // FILE *multMat = fopen(argv[3], "w");
+        // Open the three files
+        FILE *mat1 = fopen(argv[1], "r");
+        FILE *mat2 = fopen(argv[2], "r");
+        FILE *multMat = fopen(argv[3], "w");
 
         // Check to see if there is a thread count then store it
         if (argc == 5)
@@ -38,12 +38,14 @@ int main(int argc, char **argv)
             char *threads = argv[4];
             int threadCount = atoi(threads);
         }
-
-        int a[3][3] = {
-            {1, 1, 1},
-            {1, 1, 1},
-            {1, 1, 1}
-        };
+        column = mat1[0];
+        row = mat1[];
+        int a[100][100];
+        for(int i = 0; i < column; i++){
+            for(int j = 0; j < row; j++){
+                a[i][j] = mat1[i][j];
+            }
+        }
         int b[3][3] = {
             {1, 1, 1},
             {1, 1, 1},
