@@ -45,8 +45,9 @@ int main(int argc, char **argv)
         fread(b, buffer, 1, mat2);
 
         for(int i = 0; i < 10; i++){
+            printf("new row");
             for(int j = 0; j < 10; j++){
-                printf("%d ", a[i][j]);
+                printf("%d\n ", a[i][j]);
             }
         }
         // for (int i = 0; i < 5; i++)
