@@ -66,7 +66,7 @@ int main(int argc, char **argv)
         }
 
         char *a = readFile("matrix1");
-        printf("%s", a);
+        printf("%d", a);
         // int b[3][3] = {
         //     {1, 1, 1},
         //     {1, 1, 1},
