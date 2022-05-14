@@ -38,26 +38,20 @@ int main(int argc, char **argv)
             char *threads = argv[4];
             int threadCount = atoi(threads);
         }
-        column = mat1[0];
-        row = mat1[];
+        
         int a[100][100];
-        for(int i = 0; i < column; i++){
-            for(int j = 0; j < row; j++){
-                a[i][j] = mat1[i][j];
-            }
-        }
-        int b[3][3] = {
-            {1, 1, 1},
-            {1, 1, 1},
-            {1, 1, 1}
-        };
-        int c[3][3] = {
-            {0, 0, 0},
-            {0, 0, 0},
-            {0, 0, 0}
-        };
+        // int b[3][3] = {
+        //     {1, 1, 1},
+        //     {1, 1, 1},
+        //     {1, 1, 1}
+        // };
+        // int c[3][3] = {
+        //     {0, 0, 0},
+        //     {0, 0, 0},
+        //     {0, 0, 0}
+        // };
 
-        // fread(a, buffer, 1, mat1);
+        fread(a, 1, buffer, mat1);
         // fread(b, buffer, 1, mat2);
 
         // Tried print out the matrix to understand how it's stored in the file
@@ -67,16 +61,16 @@ int main(int argc, char **argv)
         //         printf("%d\n ", a[i][j]);
         //     }
         // }
+        // for(int i = 0; i < 3; i++){
+        //     for(int j = 0; j < 3; j++){
+        //         for(int k = 0; k < 3; k++){
+        //             c[i][k] += a[i][j] * b[j][k];
+        //         }
+        //     }
+        // }
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
-                for(int k = 0; k < 3; k++){
-                    c[i][k] += a[i][j] * b[j][k];
-                }
-            }
-        }
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                printf("%d ", c[i][j]);
+                printf("%d ", a[i][j]);
             }
             printf("\n");
         }
