@@ -14,7 +14,7 @@
 #include<string.h>
 #include<pthread.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv){
     int buffer = 10000;
 
     // Make sure right amount of arguments are passed
