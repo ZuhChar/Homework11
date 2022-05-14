@@ -16,6 +16,8 @@
 int main(int argc, char **argv)
 {
     int buffer = 10000;
+    int row;
+    int column;
 
     // Make sure right amount of arguments are passed
     if (argc > 5 || argc < 4)
@@ -26,9 +28,9 @@ int main(int argc, char **argv)
     else
     {
         // Store names of matrices
-        FILE *mat1 = fopen(argv[1], "r");
-        FILE *mat2 = fopen(argv[2], "r");
-        FILE *multMat = fopen(argv[3], "w");
+        // FILE *mat1 = fopen(argv[1], "r");
+        // FILE *mat2 = fopen(argv[2], "r");
+        // FILE *multMat = fopen(argv[3], "w");
 
         // Check to see if there is a thread count then store it
         if (argc == 5)
@@ -37,28 +39,35 @@ int main(int argc, char **argv)
             int threadCount = atoi(threads);
         }
 
-        int a[1000][1000];
-        int b[1000][1000];
-        int c[1000][1000];
+        int a[3][3] = {
+            {1, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1}
+        };
+        int b[3][3] = {
+            {1, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1}
+        };
+        int c[3][3];
 
-        fread(a, buffer, 1, mat1);
-        fread(b, buffer, 1, mat2);
+        // fread(a, buffer, 1, mat1);
+        // fread(b, buffer, 1, mat2);
 
-        for(int i = 0; i < 10; i++){
-            printf("new row");
-            for(int j = 0; j < 10; j++){
-                printf("%d\n ", a[i][j]);
-            }
-        }
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     for (int j = 0; j < 10; j++)
-        //     {
-        //         for (int k = 0; k < 6; k++)
-        //         {
-        //             c[i][k] += a[i][j] * b[j][k];
-        //         }
+        // Tried print out the matrix to understand how it's stored in the file
+        // for(int i = 0; i < 10; i++){
+        //     printf("new row");
+        //     for(int j = 0; j < 10; j++){
+        //         printf("%d\n ", a[i][j]);
         //     }
         // }
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                for(int k = 0; k < 3; k++){
+                    c[i][k] += a[i][j] * b[j][k];
+                }
+            }
+        }
+        printf("%d\n", c);
     }
 }
