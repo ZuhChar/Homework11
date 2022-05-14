@@ -44,15 +44,15 @@ int main(int argc, char **argv)
         fread(a, buffer, 1, mat1);
         fread(b, buffer, 1, mat2);
 
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                for (int k = 0; k < 6; k++)
-                {
-                    c[i][k] += a[i][j] * b[j][k];
-                }
-            }
-        }
+        // for (int i = 0; i < 5; i++)
+        // {
+        //     for (int j = 0; j < 10; j++)
+        //     {
+        //         for (int k = 0; k < 6; k++)
+        //         {
+        //             c[i][k] += a[i][j] * b[j][k];
+        //         }
+        //     }
+        // }
     }
 }
