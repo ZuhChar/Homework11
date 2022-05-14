@@ -15,33 +15,49 @@
 #include <string.h>
 #include <pthread.h>
 
-char *readFile(char *fileName)
+// Function to read a file that ended up being useless
+// char *readFile(char *fileName)
+// {
+//     FILE *file = fopen(fileName, "r");
+//     char *code;
+//     size_t n = 0;
+//     int c;
+
+//     if (file == NULL)
+//         return NULL; // could not open file
+//     fseek(file, 0, SEEK_END);
+//     long f_size = ftell(file);
+//     fseek(file, 0, SEEK_SET);
+//     code = malloc(f_size);
+
+//     while ((c = fgetc(file)) != EOF)
+//     {
+//         code[n++] = (char)c;
+//     }
+
+//     code[n] = '\0';
+
+//     return code;
+// }
+
+int multMat(int a[][], int b[][])
 {
-    FILE *file = fopen(fileName, "r");
-    char *code;
-    size_t n = 0;
-    int c;
-
-    if (file == NULL)
-        return NULL; // could not open file
-    fseek(file, 0, SEEK_END);
-    long f_size = ftell(file);
-    fseek(file, 0, SEEK_SET);
-    code = malloc(f_size);
-
-    while ((c = fgetc(file)) != EOF)
+    int c[100][100];
+    for (int i = 0; i < 3; i++)
     {
-        code[n++] = (char)c;
+        for (int j = 0; j < 3; j++)
+        {
+            for (int k = 0; k < 3; k++)
+            {
+                c[i][k] += a[i][j] * b[j][k];
+            }
+        }
     }
-
-    code[n] = '\0';
-
-    return code;
 }
 
 int main(int argc, char **argv)
 {
-    int buffer = 10000;
+    int buffer = 100;
     int row;
     int column;
 
@@ -57,26 +73,31 @@ int main(int argc, char **argv)
         FILE *mat1 = fopen(argv[1], "r");
         FILE *mat2 = fopen(argv[2], "r");
         FILE *multMat = fopen(argv[3], "w");
+        int threadCount = 0;
 
         // Check to see if there is a thread count then store it
         if (argc == 5)
         {
             char *threads = argv[4];
-            int threadCount = atoi(threads);
+            threadCount = atoi(threads);
         }
 
-        char *a = readFile("matrix1");
-        printf("%s\n", a);
-        // int b[3][3] = {
-        //     {1, 1, 1},
-        //     {1, 1, 1},
-        //     {1, 1, 1}
-        // };
-        // int c[3][3] = {
-        //     {0, 0, 0},
-        //     {0, 0, 0},
-        //     {0, 0, 0}
-        // };
+        // Tried printing out the contents of file and it says its empty?
+        // char *a = readFile("matrix1");
+        // printf("%s\n", a);
+
+        int a[3][3] = {
+            {1, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1}};
+        int b[3][3] = {
+            {1, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1}};
+        int c[3][3] = {
+            {0, 0, 0},
+            {0, 0, 0},
+            {0, 0, 0}};
         // fread(b, buffer, 1, mat2);
 
         // Tried print out the matrix to understand how it's stored in the file
@@ -86,20 +107,32 @@ int main(int argc, char **argv)
         //         printf("%d\n ", a[i][j]);
         //     }
         // }
-        // for(int i = 0; i < 3; i++){
-        //     for(int j = 0; j < 3; j++){
-        //         for(int k = 0; k < 3; k++){
-        //             c[i][k] += a[i][j] * b[j][k];
-        //         }
-        //     }
-        // }
-        // for (int i = 0; i < 3; i++)
-        // {
-        //     for (int j = 0; j < 3; j++)
-        //     {
-        //         printf("%d ", a[i][j]);
-        //     }
-        //     printf("\n");
-        // }
+
+        int count = 0;
+        int err;
+        pthread_t tid[threadCount];
+        while(count < threadCount){
+            err = pthread_create(&(tid[count]), NULL, &multMat(a, b), NULL);
+
+            if (err != 0)
+                printf("\nCan't creat thread: [%s]", strerror(err));
+            count++
+        }
+
+        for(int i = 0; i < count; i++){
+            pthread_join(tid[i], NULL);
+        }
+
+        fwrite(c, buffer, 1, multMat);
+
+        // Just wanted to print out the matrix to make sure it's right
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d ", c[i][j]);
+            }
+            printf("\n");
+        }
     }
 }
