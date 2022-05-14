@@ -21,9 +21,9 @@ int main(int argc, char *argv[]){
         return 0;
     }
     // Store names of matrices
-    FILE *mat1 = fopen(argv[1], r);
-    FILE *mat2 = fopen(argv[2], r);
-    FILE *mat1 = fopen(argv[1], w);
+    FILE *mat1 = fopen(argv[1], "r");
+    FILE *mat2 = fopen(argv[2], "r");
+    FILE *mat1 = fopen(argv[1], "w");
 
     // Check to see if there is a thread count then store it
     if(argc == 5){
