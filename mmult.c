@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
         perror("Incorrect usage of mmult.c.: ");
         return 0;
     }
-    char mat1 = argv[0];
+    char *mat1 = argv[0];
 
     printf("%s", mat1);
 
