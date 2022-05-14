@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         FILE *mat1 = fopen(argv[1], "r");
         FILE *mat2 = fopen(argv[2], "r");
         FILE *multMat = fopen(argv[3], "w");
-        
+
         // Check to see if there is a thread count then store it
         if (argc == 5)
         {
@@ -42,14 +42,17 @@ int main(int argc, char **argv)
         int c[1000][1000];
 
         fread(a, buffer, 1, mat1);
+        fread(b, buffer, 1, mat2);
 
-        printf("%d\n", a);
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                for (int k = 0; k < 6; k++)
+                {
+                    c[i][k] += a[i][j] * b[j][k];
+                }
+            }
+        }
     }
-    // for(int i = 0; i < 5; i++){
-    //     for(int j = 0; j < 10; j++){
-    //         for(int k = 0; k < 6; k++){
-    //             c[i][k] += a[i][j] * b[j][k];
-    //         }
-    //     }
-    // }
 }
