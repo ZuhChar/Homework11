@@ -42,8 +42,7 @@
 int c[3][3] = {
     {0, 0, 0},
     {0, 0, 0},
-    {0, 0, 0}
-};
+    {0, 0, 0}};
 
 int multMat(int **a, int **b)
 {
@@ -58,13 +57,13 @@ int multMat(int **a, int **b)
         }
     }
     for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
         {
-            for (int j = 0; j < 3; j++)
-            {
-                printf("%d ", c[i][j]);
-            }
-            printf("\n");
+            printf("%d ", c[i][j]);
         }
+        printf("\n");
+    }
 }
 
 int main(int argc, char **argv)
@@ -136,5 +135,15 @@ int main(int argc, char **argv)
         fwrite(c, buffer, 1, mmat);
 
         // Just wanted to print out the matrix to make sure it's right
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     for (int j = 0; j < 3; j++)
+        //     {
+        //         for (int k = 0; k < 3; k++)
+        //         {
+        //             c[i][k] += a[i][j] * b[j][k];
+        //         }
+        //     }
+        // }
     }
 }
