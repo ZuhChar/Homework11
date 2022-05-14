@@ -45,7 +45,7 @@ int c[3][3] = {
     {0, 0, 0}
 };
 
-int multMat(int *a[], int *b[])
+int multMat(int *a[][], int *b[][])
 {
     for (int i = 0; i < 3; i++)
     {
@@ -65,6 +65,7 @@ int multMat(int *a[], int *b[])
             }
             printf("\n");
         }
+    return 0;
 }
 
 int main(int argc, char **argv)
