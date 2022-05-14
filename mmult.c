@@ -46,15 +46,13 @@ int c[3][3] = {
 
 int multMat(int **a[][], int **b[][])
 {
-    int matA[3][3] = a;
-    int matB[3][3] = b;
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
             for (int k = 0; k < 3; k++)
             {
-                c[i][k] += matA[i][j] * matB[j][k];
+                c[i][k] += a[i][j] * b[j][k];
             }
         }
     }
