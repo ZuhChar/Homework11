@@ -15,11 +15,16 @@
 #include<pthread.h>
 
 int main(int argc, char *argv[]){
-    if(argc >= 6){
+    if(argc >= 5 || argc < 4){
         perror("Incorrect usage of mmult.c.: ");
         return 0;
     }
     char *mat1 = argv[1];
+    char *mat2 = argv[2];
+    char *multMat = argv[3];
+    if(argc == 5){
+        char *threads = argv[4];
+    }
 
     printf("%s\n", mat1);
 
