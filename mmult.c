@@ -20,12 +20,12 @@ int main(int argc, char **argv)
     int column;
 
     // Make sure right amount of arguments are passed
-    if (argc > 5 || argc < 4)
+    if (1)
     {
         printf("Incorrect amount of arguments passed\n");
         return 0;
     }
-    else
+    else if(1)
     {
         // Store names of matrices
         // FILE *mat1 = fopen(argv[1], "r");
