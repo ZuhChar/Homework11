@@ -113,10 +113,10 @@ int main(int argc, char **argv)
         int err;
         pthread_t tid[threadCount];
         while(count < threadCount){
-            err = pthread_create(&(tid[count]), NULL, multMat(a, b), NULL);
+            c = pthread_create(&(tid[count]), NULL, multMat(a, b), NULL);
 
-            if (err != 0)
-                printf("\nCan't creat thread: [%s]", strerror(err));
+            if (c != 0)
+                printf("\nCan't creat thread: [%s]", strerror(c));
             count++;
         }
 
