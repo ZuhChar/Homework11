@@ -39,10 +39,14 @@
 
 //     return code;
 // }
+int c[3][3] = {
+    {0, 0, 0},
+    {0, 0, 0},
+    {0, 0, 0}
+};
 
 int multMat(int *a[], int *b[])
 {
-    int c[100][100];
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -53,7 +57,14 @@ int multMat(int *a[], int *b[])
             }
         }
     }
-    return c;
+    for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d ", c[i][j]);
+            }
+            printf("\n");
+        }
 }
 
 int main(int argc, char **argv)
@@ -95,10 +106,6 @@ int main(int argc, char **argv)
             {1, 1, 1},
             {1, 1, 1},
             {1, 1, 1}};
-        int c[3][3] = {
-            {0, 0, 0},
-            {0, 0, 0},
-            {0, 0, 0}};
         // fread(b, buffer, 1, mat2);
 
         // Tried print out the matrix to understand how it's stored in the file
@@ -112,28 +119,22 @@ int main(int argc, char **argv)
         int count = 0;
         int err;
         pthread_t tid[threadCount];
-        while(count < threadCount){
-            c = pthread_create(&(tid[count]), NULL, multMat(a, b), NULL);
+        while (count < threadCount)
+        {
+            err = pthread_create(&(tid[count]), NULL, multMat(a, b), NULL);
 
-            if (c != 0)
-                printf("\nCan't creat thread: [%s]", strerror(c));
+            if (err != 0)
+                printf("\nCan't creat thread: [%s]", strerror(err));
             count++;
         }
 
-        for(int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++)
+        {
             pthread_join(tid[i], NULL);
         }
 
         fwrite(c, buffer, 1, mmat);
 
         // Just wanted to print out the matrix to make sure it's right
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                printf("%d ", c[i][j]);
-            }
-            printf("\n");
-        }
     }
 }
