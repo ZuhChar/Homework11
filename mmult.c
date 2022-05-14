@@ -8,7 +8,7 @@
 // This is a simple program to calculate the matrix multiplication of two matrices.
 //
 
-// I'm going to be honest Dr. Buckner, I would've rather just taken a final exam than do this
+// I'm going to be honest Dr. Buckner, I would've rather just taken a final exam than do this program
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -105,6 +105,11 @@ int main(int argc, char **argv)
             {1, 1, 1},
             {1, 1, 1},
             {1, 1, 1}};
+
+        // My attempt at getting the matrix from the file... it didn't work
+        // I'm not sure how the matrix is being stored in the file and opening it with
+        // a text editor simply gave me a bunch of giberish that didn't help
+
         // fread(b, buffer, 1, mat2);
 
         // Tried print out the matrix to understand how it's stored in the file
@@ -115,18 +120,25 @@ int main(int argc, char **argv)
         //     }
         // }
 
+        // Declare variable to count up to number of threads provided
         int count = 0;
         int err;
+
+        // Create amount of threads equal to amount provided
         pthread_t tid[threadCount];
+
+        // Tell threads to execute the multMat function until all amount of threads requested are assigned
         while (count < threadCount)
         {
             err = pthread_create(&(tid[count]), NULL, multMat(a, b), NULL);
 
+            // Print an error if thread is not created properly
             if (err != 0)
-                printf("\nCan't creat thread: [%s]", strerror(err));
+                printf("\nCan't create thread: [%s]", strerror(err));
             count++;
         }
 
+        // Join all of the threads together
         for (int i = 0; i < count; i++)
         {
             pthread_join(tid[i], NULL);
