@@ -132,6 +132,29 @@ int main(int argc, char **argv)
             pthread_join(tid[i], NULL);
         }
 
+
+        // Compute mmult
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+                    c[i][k] += a[i][j] * b[j][k];
+                }
+            }
+        }
+
+        // Check to make sure mmult was done correctly
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d ", c[i][j]);
+            }
+            printf("\n");
+        }
+
         fwrite(c, buffer, 1, mmat);
 
         // Just wanted to print out the matrix to make sure it's right
