@@ -72,7 +72,7 @@ int main(int argc, char **argv)
         // Open the three files
         FILE *mat1 = fopen(argv[1], "r");
         FILE *mat2 = fopen(argv[2], "r");
-        FILE *multMat = fopen(argv[3], "w");
+        FILE *mmat = fopen(argv[3], "w");
         int threadCount = 0;
 
         // Check to see if there is a thread count then store it
@@ -123,7 +123,7 @@ int main(int argc, char **argv)
             pthread_join(tid[i], NULL);
         }
 
-        fwrite(c, buffer, 1, multMat);
+        fwrite(c, buffer, 1, mmat);
 
         // Just wanted to print out the matrix to make sure it's right
         for (int i = 0; i < 3; i++)
