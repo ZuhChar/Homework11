@@ -53,6 +53,7 @@ int multMat(int *a[], int *b[])
             }
         }
     }
+    return c;
 }
 
 int main(int argc, char **argv)
