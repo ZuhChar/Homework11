@@ -21,17 +21,15 @@ int main(int argc, char *argv[]){
         return 0;
     }
     // Store names of matrices
-    char *mat1 = argv[1];
-    char *mat2 = argv[2];
-    char *multMat = argv[3];
+    FILE *mat1 = fopen(argv[1], r);
+    FILE *mat2 = fopen(argv[2], r);
+    FILE *mat1 = fopen(argv[1], w);
 
     // Check to see if there is a thread count then store it
     if(argc == 5){
         char *threads = argv[4];
         int threadCount = atoi(threads);
     }
-
-    
 
     // for(int i = 0; i < 5; i++){
     //     for(int j = 0; j < 10; j++){
