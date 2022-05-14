@@ -15,7 +15,7 @@
 #include<pthread.h>
 
 int main(int argc, char *argv[]){
-    if(argc >= 5 || argc < 4){
+    if(argc > 5 || argc < 4){
         perror("Incorrect usage of mmult.c.: ");
         return 0;
     }
