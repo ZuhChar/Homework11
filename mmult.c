@@ -65,8 +65,8 @@ int main(int argc, char **argv)
             int threadCount = atoi(threads);
         }
 
-        char a = readFile(mat1);
-        printf(a);
+        char a = readFile("matrix1");
+        printf("%s", a);
         // int b[3][3] = {
         //     {1, 1, 1},
         //     {1, 1, 1},
