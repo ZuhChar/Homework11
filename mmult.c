@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     int column;
 
     // Make sure right amount of arguments are passed
-    if (1)
+    if (!1)
     {
         printf("Incorrect amount of arguments passed\n");
         return 0;
