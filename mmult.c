@@ -155,7 +155,14 @@ int main(int argc, char **argv)
             printf("\n");
         }
 
+        // Update new matrix to file
         fwrite(c, buffer, 1, mmat);
+
+        // Close the files
+        fclose(mat1);
+        fclose(mat2);
+        fclose(mmat);
+        
 
         // Just wanted to print out the matrix to make sure it's right
         // for (int i = 0; i < 3; i++)
