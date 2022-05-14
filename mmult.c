@@ -19,9 +19,9 @@ int main(int argc, char *argv[]){
         perror("Incorrect usage of mmult.c.: ");
         return 0;
     }
-    char *mat1 = argv[0];
+    char *mat1 = argv[1];
 
-    printf("%s", mat1);
+    printf("%s\n", mat1);
 
     // for(int i = 0; i < 5; i++){
     //     for(int j = 0; j < 10; j++){
