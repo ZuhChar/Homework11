@@ -18,7 +18,7 @@ RM= rm -f
 all: mmult
 
 mmult: mmult.c
-	${CC} ${CFLAGS} mmult.c -o mmult
+	${CC} ${CFLAGS} mmult.c -o mmult -pthread
 
 clean:
 	${RM} *.o mmult
