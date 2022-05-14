@@ -8,10 +8,36 @@
 // This is a simple program to calculate the matrix multiplication of two matrices.
 //
 
+// I'm going to be honest Dr. Buckner, I would've rather just taken a final exam than do this
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
+
+char *readFile(char *fileName)
+{
+    FILE *file = fopen(fileName, "r");
+    char *code;
+    size_t n = 0;
+    int c;
+
+    if (file == NULL)
+        return NULL; // could not open file
+    fseek(file, 0, SEEK_END);
+    long f_size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    code = malloc(f_size);
+
+    while ((c = fgetc(file)) != EOF)
+    {
+        code[n++] = (char)c;
+    }
+
+    code[n] = '\0';
+
+    return code;
+}
 
 int main(int argc, char **argv)
 {
@@ -38,8 +64,9 @@ int main(int argc, char **argv)
             char *threads = argv[4];
             int threadCount = atoi(threads);
         }
-        
-        int a[100][100];
+
+        char a = readFile(mat1);
+        printf(a);
         // int b[3][3] = {
         //     {1, 1, 1},
         //     {1, 1, 1},
@@ -50,8 +77,6 @@ int main(int argc, char **argv)
         //     {0, 0, 0},
         //     {0, 0, 0}
         // };
-
-        fread(a, 1, buffer, mat1);
         // fread(b, buffer, 1, mat2);
 
         // Tried print out the matrix to understand how it's stored in the file
@@ -68,8 +93,10 @@ int main(int argc, char **argv)
         //         }
         //     }
         // }
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
                 printf("%d ", a[i][j]);
             }
             printf("\n");
