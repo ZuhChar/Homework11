@@ -8,27 +8,32 @@
 // This is a simple program to calculate the matrix multiplication of two matrices.
 //
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <pthread.h>
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<pthread.h>
-
-int main(int argc, char **argv){
+int main(int argc, char **argv)
+{
     int buffer = 10000;
 
     // Make sure right amount of arguments are passed
-    if(argc > 5 || argc < 4){
+    if (argc > 5 || argc < 4)
+    {
         printf("Incorrect amount of arguments passed\n");
         return 0;
     }
-    // Store names of matrices
-    FILE *mat1 = fopen(argv[1], "r");
-    FILE *mat2 = fopen(argv[2], "r");
-    FILE *multMat = fopen(argv[3], "w");
-
+    else
+    {
+        // Store names of matrices
+        FILE *mat1 = fopen(argv[1], "r");
+        FILE *mat2 = fopen(argv[2], "r");
+        FILE *multMat = fopen(argv[3], "w");
+    }
+    
     // Check to see if there is a thread count then store it
-    if(argc == 5){
+    if (argc == 5)
+    {
         char *threads = argv[4];
         int threadCount = atoi(threads);
     }
