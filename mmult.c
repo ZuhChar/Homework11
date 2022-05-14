@@ -39,6 +39,7 @@ int main(int argc, char *argv[]){
 
     fread(a, buffer, 1, mat1);
 
+    printf("%d\n", a);
     // for(int i = 0; i < 5; i++){
     //     for(int j = 0; j < 10; j++){
     //         for(int k = 0; k < 6; k++){
