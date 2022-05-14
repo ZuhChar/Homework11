@@ -65,8 +65,12 @@ int main(int argc, char **argv)
             for(int j = 0; j < 3; j++){
                 for(int k = 0; k < 3; k++){
                     c[i][k] += a[i][j] * b[j][k];
-                    printf("%d\n", c[i][k]);
                 }
+            }
+        }
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                printf("%d\n", c[i][j]);
             }
         }
     }
